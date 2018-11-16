@@ -8,7 +8,9 @@ Created on Wed Oct 10 13:09:10 2018
 from flask import Flask
 import requests
 from cryptography.fernet import Fernet
+print('Enter Username')
 CID=input()
+print('Enter password')
 PW=input()
 key = Fernet.generate_key()
 cipher_suite = Fernet(key)
