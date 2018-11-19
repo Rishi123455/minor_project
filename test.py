@@ -28,8 +28,16 @@ def hello():
     cur = conn.cursor()
     ans=""
     if choice == 1 :
-        cur.execute("insert into iot values ( %s , %s )",(DCID.decode('utf-8'),DPW.decode('utf-8')))
-        ans = "Registered"
+        sql='select count(*) from iot where CID IN %s'
+        args=[[DCID.decode('utf-8')]]
+        cur.execute(sql,args)
+        row = cur.fetchone()
+        ct = int(row[0])
+        if ct > 0:
+            ans = "Not unique username"
+        else :
+            cur.execute("insert into iot values ( %s , %s )",(DCID.decode('utf-8'),DPW.decode('utf-8')))
+            ans = "Registered"
     elif choice == 2 :
         sql='SELECT PW FROM iot WHERE CID IN %s'
         args=[[DCID.decode('utf-8')]]
