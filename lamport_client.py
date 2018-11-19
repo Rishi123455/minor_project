@@ -7,9 +7,14 @@ Created on Mon Nov 19 14:31:32 2018
 
 import random
 import requests
-point = 2
-public_key = 4444
 
+
+r1 = requests.post("http://localhost:5001/t1", data={})
+response=r1.text
+print(response)
+point,public_key = response.split()
+public_key=int(public_key)
+point=int(point)
 M = 242
 k = random.randint(1,100)
 c1 = k * point

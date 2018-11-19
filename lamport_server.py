@@ -6,13 +6,22 @@ Created on Mon Nov 19 14:45:48 2018
 """
 
 from flask import Flask,request,session
+import random
 point = -1
 M=-1
-private_key = -1
 f=int(455)
 ntp = int(455)
 d=int(2222)
 app = Flask(__name__)
+@app.route("/t1",methods=['POST'])
+def hello1():
+    a = random.randint(1,101)
+    b = random.randint(1,101)
+    x = random.randint(1,101)
+    point = x**3 + a*x + b
+    return str(point)+" " + str(point*d)
+
+
 
 @app.route("/",methods=['POST'])
 def hello():
@@ -22,13 +31,6 @@ def hello():
     count = request.form['count']
     point = request.form['point']
     public_key = request.form['public_key']
-    print(int(c1))
-    print(int (c2))
-    print(float(temp))
-    print(int(count))
-    print(int(point))
-    print(int(public_key))  
-    print(f)
     global ntp
     print(ntp)
     
