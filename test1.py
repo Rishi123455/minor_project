@@ -6,7 +6,7 @@ Created on Tue Oct  9 15:53:33 2018
 """
 
 import MySQLdb
-conn = MySQLdb.connect(user="root", passwd="rishi26071997", db="rishi")
+conn = MySQLdb.connect(user="root", passwd="", db="rishi")
 cur = conn.cursor()
 CID="rishi"
 PW="gupta"
