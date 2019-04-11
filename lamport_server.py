@@ -44,7 +44,7 @@ def hello():
         ans="1"
     else:
         inverse = float((2*float(var)-3-f)/3)
-        print("inverse is : {}".format(inverse))
+        #print("inverse is : {}".format(inverse))
         #print("otp is : {}".format(ntp))
         if inverse == ntp:
                 ntp = var
